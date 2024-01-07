@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This application are needed
+###  npm i @headlessui/react
+###  npm install @heroicons/react
+to unistall {use "uninstall" at place of i/install}
+for carousel , best version will be 2.7.1
+###  npm i react-alice-carousel@2.7.1
+### npm i react-alice-carousel
+#to use location
+###  npm i react-router-dom
