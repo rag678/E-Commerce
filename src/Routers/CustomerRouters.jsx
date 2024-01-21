@@ -9,6 +9,7 @@ import ProductDetails from '../customer/components/ProductDetails/ProductDetails
 import Order from '../customer/components/Order/Order'
 import Checkout from '../customer/components/Checkout/Checkout'
 import OrderDetails from '../customer/components/Order/OrderDetails'
+import PaymentSuccess from '../customer/components/Payment/PaymentSuccess'
 
 const CustomerRouters = () => {
   return (
@@ -21,11 +22,12 @@ const CustomerRouters = () => {
         <Route path='/login' element={<HomePage/>}></Route>
             <Route path='/register' element={<HomePage/>}></Route>
             <Route path='/Cart' element={<Cart/>}></Route>
-            <Route path='/:lavelOne/:lavelTwo/:lavelThre' element={<Product/>}></Route>
-            <Route path='/Product/:ProductId' element={<ProductDetails/>}></Route>
+            <Route path='/:lavelOne/:lavelTwo/:lavelThree' element={<Product/>}></Route>
+            <Route path='/Product/:productId' element={<ProductDetails/>}></Route>
             <Route path='/Checkout' element={<Checkout/>}></Route>
             <Route path='/account/order' element={<Order/>}></Route>
             <Route path='/account/order/:orderId' element={<OrderDetails/>}></Route>
+            <Route path='/payment/:orderId' element={<PaymentSuccess/>}></Route>
 
         {/* <Order/> */}
         {/* <OrderDetails/> */}

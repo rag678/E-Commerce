@@ -26,7 +26,7 @@ import { deepPurple } from "@mui/material/colors";
 import { useLocation, useNavigate } from "react-router-dom";
 import AuthModal from "../../Auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser, logout } from "../../../Store/Auth/Action";
+import { getUser, logout } from "../../../State/Auth/Action";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

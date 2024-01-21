@@ -77,3 +77,6 @@ for carousel , best version will be 2.7.1
 ### npm i react-alice-carousel
 #to use location
 ###  npm i react-router-dom
+
+We will be needed this file to integrate apia
+### npm i redux redux-thunk react-redux axios

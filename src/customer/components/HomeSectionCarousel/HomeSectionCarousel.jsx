@@ -18,10 +18,10 @@ const HomeSectionCarousel = ({data,sectionName}) => {
   const syncActiveIndex = ({ item }) => setActiveIndex(item);
 
   const items = data
-    .slice(0, 10)
+    .slice(0, 15)
     .map((item) => <HomeSectionCard product={item} />);
   return (
-    <div className="border">
+    <div >
       <h2 className="text-2xl font-extrabold text-gray-800 py-5">{sectionName}</h2>
       <div className="relative p-5">
         <AliceCarousel

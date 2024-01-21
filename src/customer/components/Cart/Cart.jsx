@@ -1,32 +1,39 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CartItem from './CartItem'
-import { Button, Divider } from '@mui/material'
+import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import {getCart} from '../../../State/Cart/Action'
 
 const Cart = () => {
     const navigate = useNavigate();
+    const {cart} = useSelector(store=>store);
+    const dispatch = useDispatch();
 
     const handleCheckout=()=>{
         navigate('/checkout?step=2');
     }
+    useEffect(()=>{
+        dispatch(getCart())
+    },[cart.updateCartItem,cart.deleteCartItem])
     return (
         <div>
             <div className="lg:grid grid-cols-3 lg:px-16 relative">
                 <div className='col-span-2'>
-                    {[1,1,1,1].map((item)=><CartItem />)}
+                    {cart.cart?.cartItems.map((item)=><CartItem item={item}/>)}
                 </div>
                 <div className="px-5 sticky top-0 h-[100vh] mt-5 lg:mt-0">
                     <div className="border">
-                        <p className="uppercase opacity-60 font-bold pb-4">Price details</p>
+                        <p className="uppercase opacity-60 m-3 font-bold pb-4">Price details</p>
                         <hr />
-                        <div className="space-y-3 font-semo-bold mb-10">
+                        <div className="space-y-3 m-2 font-semo-bold mb-10">
                             <div className="flex justify-between pt-3 ml-2 text-black">
                                 <span>Price</span>
-                                <span>₹1800</span>
+                                <span>₹ {cart.cart?.totalPrice}</span>
                             </div>
                             <div className="flex justify-between pt-3 ml-2 text-black">
                                 <span>Discount</span>
-                                <span className='text-green-600'>-₹600</span>
+                                <span className='text-green-600'>₹ -{cart.cart?.discount}</span>
                             </div>
                             <div className="flex justify-between pt-3 ml-2 text-black">
                                 <span>Delivery Charge</span>
@@ -34,7 +41,7 @@ const Cart = () => {
                             </div>
                             <div className="flex justify-between pt-3 ml-2 text-black font-bold">
                                 <span>Total Amount</span>
-                                <span>₹1256</span>
+                                <span>₹{cart.cart?.totalDiscountedPrice}</span>
                             </div>
                         </div>
                         <Button onClick={handleCheckout} variant="contained" className='w-full' sx={{ px: "2.5rem", py: ".7rem", bgcolor: "#9155fd" }}>
